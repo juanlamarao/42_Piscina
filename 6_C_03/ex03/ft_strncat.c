@@ -5,35 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: juolivei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/10 21:46:08 by juolivei          #+#    #+#             */
-/*   Updated: 2019/10/14 18:26:37 by juolivei         ###   ########.fr       */
+/*   Created: 2019/10/15 16:57:12 by juolivei          #+#    #+#             */
+/*   Updated: 2019/10/16 10:05:57 by juolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strlen(char *str)
-{
-	int count;
-
-	count = 0;
-	while (str[count])
-		count++;
-	return (count);
-}
-
 char	*ft_strncat(char *dest, char *src, unsigned int nb)
 {
-	int sizedest;
-	int total;
-	int nsrc;
+	unsigned int sizesrc;
+	unsigned int sizedest;
 
-	sizedest = ft_strlen(dest);
-	total = nb + sizedest;
-	nsrc = 0;
-	while (sizedest < total)
-	{
-		dest[sizedest] = src[nsrc];
+	sizesrc = 0;
+	sizedest = 0;
+	while (dest[sizedest])
 		sizedest++;
-		nsrc++;
+	while ((sizesrc < nb) && (src[sizesrc]))
+	{
+		dest[sizedest] = src[sizesrc];
+		sizesrc++;
+		sizedest++;
 	}
 	dest[sizedest] = '\0';
 	return (dest);
